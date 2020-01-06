@@ -37,6 +37,11 @@ unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
     if (size >= max_size){
         throw UniqueArrayIsFullException();
     }
+    for(int i = 0; i < size; i++){
+        if(data[i] == element){
+            throw UniqueArrayElementAlreadyExists();
+        }
+    }
     data[size++] = element
 }
 
@@ -50,5 +55,32 @@ bool UniqueArray<Element, Compare>::getIndex(const Element& element, unsigned in
         }
     }
     return false;
+}
+
+template <class Element, class Compare = std::equal_to<Element>>
+void UniqueArray<Element, Compare>::copyArrayWithoutOneElement(const UniqueArray& other, unsigned int index){
+    data(new Element[]), size(other.size), max_size(other.max_size)
+    for (int i = 0; i < size; i++){
+        if (i != index){
+            data[i] = other[i]
+        }
+    }
+}
+
+
+template <class Element, class Compare = std::equal_to<Element>>
+bool UniqueArray<Element, Compare>::remove(const Element& element){
+    if (size <= 0){
+        throw UniqueArrayEmpty();
+    }
+    unsigned int& index;
+    bool found = false;
+    found = getIndex(element, index);
+    if (!found){
+        throw UniqueArrayElementNotFound();
+    }
+    else {
+        copyArrayWithoutOneElement(this, index);
+    }
 }
 #endif //EX3_MTM_UNIQUEARRAYIMP_H
