@@ -6,18 +6,19 @@
 #define EX3_MTM_UNIQUEARRAYIMP_H
 using namespace std;
 
-template <class Element, class Compare = std::equal_to<Element>>//think how to properly initialize Element type
-UniqueArray<Element, Compare>::UniqueArray(int size):
-    data(new Element[]), size(0), max_size(size){
+
+template <class Element, class Compare>//think how to properly initialize Element type
+UniqueArray<Element, Compare>::UniqueArray(unsigned int size):
+    data(new Element), size(0), max_size(size){
 }
 
 
-template <class Element, class Compare = std::equal_to<Element>>//implement exceptions
+template <class Element, class Compare>//implement exceptions
 UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& other):
     data(new Element[]), size(other.size), max_size(other.max_size){
     for(int i = 0; i < size; i++){
         try {
-            data[i] = other.data[i]
+            data[i] = other.data[i];
         }
         catch (...){
              
@@ -26,13 +27,13 @@ UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& other):
 }
 
 
-template <class Element, class Compare = std::equal_to<Element>>
+template <class Element, class Compare>
 UniqueArray<Element, Compare>::~UniqueArray(){
-    delete[] element;
+    delete[] data;
 }
 
 
-template <class Element, class Compare = std::equal_to<Element>>
+template <class Element, class Compare>
 unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
     if (size >= max_size){
         throw UniqueArrayIsFullException();
@@ -42,11 +43,11 @@ unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
             throw UniqueArrayElementAlreadyExists();
         }
     }
-    data[size++] = element
+    data[size++] = element;
 }
 
 
-template <class Element, class Compare = std::equal_to<Element>>
+template <class Element, class Compare>
 bool UniqueArray<Element, Compare>::getIndex(const Element& element, unsigned int& index) const :{
     for(int i = 0; i < size; i++){
         if (data[i] == element){
@@ -57,30 +58,16 @@ bool UniqueArray<Element, Compare>::getIndex(const Element& element, unsigned in
     return false;
 }
 
-template <class Element, class Compare = std::equal_to<Element>>
-void UniqueArray<Element, Compare>::copyArrayWithoutOneElement(const UniqueArray& other, unsigned int index){
-    data(new Element[]), size(other.size), max_size(other.max_size)
-    for (int i = 0; i < size; i++){
-        if (i != index){
-            data[i] = other[i]
-        }
-    }
-}
-
-
-template <class Element, class Compare = std::equal_to<Element>>
+template <class Element, class Compare>
 bool UniqueArray<Element, Compare>::remove(const Element& element){
     if (size <= 0){
         throw UniqueArrayEmpty();
     }
-    unsigned int& index;
+    unsigned int& index = max_size+1;
     bool found = false;
     found = getIndex(element, index);
     if (!found){
         throw UniqueArrayElementNotFound();
-    }
-    else {
-        copyArrayWithoutOneElement(this, index);
     }
 }
 #endif //EX3_MTM_UNIQUEARRAYIMP_H

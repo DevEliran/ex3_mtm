@@ -1,13 +1,16 @@
 #ifndef MTMPARKINGLOT_UNIQUEARRAY_H
 #define MTMPARKINGLOT_UNIQUEARRAY_H
+
+#include <functional>
+
 using namespace std;
 template <class Element, class Compare = std::equal_to<Element>>
 class UniqueArray {
-    Element[] data;
-    static int size;
-    static int max_size;
+    Element* data;
+    int size;
+    int max_size;
 public:
-    UniqueArray(unsigned int size);
+    explicit UniqueArray(unsigned int size);
     UniqueArray(const UniqueArray& other);
     ~UniqueArray();
     UniqueArray& operator=(const UniqueArray&) = delete;
@@ -26,11 +29,11 @@ public:
 
     class UniqueArrayIsFullException{};
 
-    class UniqueArrayElementAlreadyExists();
+    class UniqueArrayElementAlreadyExists{};
 
-    class UniqueArrayEmpty();
+    class UniqueArrayEmpty{};
 
-    class UniqueArrayElementNotFound();
+    class UniqueArrayElementNotFound{};
 };
 
 #include "UniqueArrayImp.h"
