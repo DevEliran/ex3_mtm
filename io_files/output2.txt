@@ -1,0 +1,14 @@
+Enter parking size for Motorbike:
+Enter parking size for Handicapped:
+Enter parking size for Car:
+Enter commands:
+Vehicle Type: Motorbike, License Plate: ABCD, arrived on: Day 0, 00:00 failed entering Parking Lot : no available parking spot!
+Vehicle Type: Motorbike, License Plate: asdsa, arrived on: Day 0, 00:00 failed entering Parking Lot : no available parking spot!
+Vehicle Type: Handicapped, License Plate: 1234, arrived on: Day 0, 00:00 failed entering Parking Lot : no available parking spot!
+Vehicle Type: Handicapped, License Plate: 653134, arrived on: Day 0, 00:00 failed entering Parking Lot : no available parking spot!
+Vehicle Type: Car, License Plate: 4763, arrived on: Day 0, 00:00 failed entering Parking Lot : no available parking spot!
+Error: Vehicle with License Plate: ABCD not found!
+Error: Vehicle with License Plate: 1234 not found!
+=============
+MtmParkingLot
+=============

@@ -1,0 +1,14 @@
+2
+1
+5
+PASS_TIME 30
+ENTER Motorbike ABCD
+ENTER Motorbike asdsa
+ENTER Handicapped 1234
+ENTER Handicapped 653134
+ENTER Car 4763
+ENTER Motorbike 8645
+PASS_TIME 345
+EXIT ABCD
+EXIT 1234
+PRINT

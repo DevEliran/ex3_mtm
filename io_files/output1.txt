@@ -1,0 +1,20 @@
+Enter parking size for Motorbike:
+Enter parking size for Handicapped:
+Enter parking size for Car:
+Enter commands:
+Current time: Day 0, 00:30
+Vehicle Type: Motorbike, License Plate: ABCD, arrived on: Day 0, 00:30 has successfully entered the Parking Lot, parked in: Motorbike-0
+Vehicle Type: Motorbike, License Plate: asdsa, arrived on: Day 0, 00:30 has successfully entered the Parking Lot, parked in: Motorbike-1
+Vehicle Type: Handicapped, License Plate: 1234, arrived on: Day 0, 00:30 has successfully entered the Parking Lot, parked in: Handicapped-0
+Vehicle Type: Handicapped, License Plate: 653134, arrived on: Day 0, 00:30 has successfully entered the Parking Lot, parked in: Car-0
+Vehicle Type: Car, License Plate: 4763, arrived on: Day 0, 00:30 has successfully entered the Parking Lot, parked in: Car-1
+Vehicle Type: Motorbike, License Plate: 8645, arrived on: Day 0, 00:30 failed entering Parking Lot : no available parking spot!
+Current time: Day 0, 06:15
+Vehicle Type: Motorbike, License Plate: ABCD, arrived on: Day 0, 00:30, parked in: Motorbike-0 has exited Parking Lot on: Day 0, 06:15, Total price to pay: 35
+Vehicle Type: Handicapped, License Plate: 1234, arrived on: Day 0, 00:30, parked in: Handicapped-0 has exited Parking Lot on: Day 0, 06:15, Total price to pay: 15
+=============
+MtmParkingLot
+=============
+Vehicle Type: Motorbike, License Plate: asdsa, arrived on: Day 0, 00:30, parked in: Motorbike-1
+Vehicle Type: Handicapped, License Plate: 653134, arrived on: Day 0, 00:30, parked in: Car-0
+Vehicle Type: Car, License Plate: 4763, arrived on: Day 0, 00:30, parked in: Car-1

@@ -1,0 +1,32 @@
+Enter parking size for Motorbike:
+Enter parking size for Handicapped:
+Enter parking size for Car:
+Enter commands:
+Vehicle Type: Motorbike, License Plate: 1, arrived on: Day 0, 00:00 has successfully entered the Parking Lot, parked in: Motorbike-0
+Current time: Day 0, 00:01
+Vehicle Type: Motorbike, License Plate: 1, arrived on: Day 0, 00:00 is already in the Parking Lot, parked in: Motorbike-0
+Vehicle Type: Motorbike, License Plate: 2, arrived on: Day 0, 00:01 has successfully entered the Parking Lot, parked in: Motorbike-1
+Vehicle Type: Motorbike, License Plate: 3, arrived on: Day 0, 00:01 failed entering Parking Lot : no available parking spot!
+Vehicle Type: Handicapped, License Plate: 10, arrived on: Day 0, 00:01 has successfully entered the Parking Lot, parked in: Handicapped-0
+Vehicle Type: Handicapped, License Plate: 11, arrived on: Day 0, 00:01 has successfully entered the Parking Lot, parked in: Car-0
+Vehicle Type: Car, License Plate: AB14D, arrived on: Day 0, 00:01 has successfully entered the Parking Lot, parked in: Car-1
+Current time: Day 0, 06:02
+Vehicle Type: Handicapped, License Plate: 11, arrived on: Day 0, 00:01, parked in: Car-0 has exited Parking Lot on: Day 0, 06:02, Total price to pay: 15
+Error: Vehicle with License Plate: ABCD not found!
+Vehicle Type: Car, License Plate: AB14D, arrived on: Day 0, 00:01, parked in: Car-1 has exited Parking Lot on: Day 0, 06:02, Total price to pay: 70
+=============
+MtmParkingLot
+=============
+Vehicle Type: Motorbike, License Plate: 1, arrived on: Day 0, 00:00, parked in: Motorbike-0
+Vehicle Type: Motorbike, License Plate: 2, arrived on: Day 0, 00:01, parked in: Motorbike-1
+Vehicle Type: Handicapped, License Plate: 10, arrived on: Day 0, 00:01, parked in: Handicapped-0
+Current time: Day 1, 01:02
+Parking lot was inspected on: Day 1, 01:02. Total of 3 vehicles were fined.
+Current time: Day 1, 01:32
+Parking lot was inspected on: Day 1, 01:32. Total of 0 vehicles were fined.
+Vehicle Type: Motorbike, License Plate: 1, arrived on: Day 0, 00:00, parked in: Motorbike-0 has exited Parking Lot on: Day 1, 01:32, Total price to pay: 285
+Vehicle Type: Motorbike, License Plate: 2, arrived on: Day 0, 00:01, parked in: Motorbike-1 has exited Parking Lot on: Day 1, 01:32, Total price to pay: 285
+=============
+MtmParkingLot
+=============
+Vehicle Type: Handicapped, License Plate: 10, arrived on: Day 0, 00:01, parked in: Handicapped-0
