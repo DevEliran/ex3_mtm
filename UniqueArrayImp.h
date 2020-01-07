@@ -7,16 +7,16 @@ template <class Element, class Compare>
 UniqueArray<Element, Compare>::UniqueArray(unsigned int size):
     data(new Element* [size]), size(0), max_size(size){
     for(int i = 0; i < max_size; i++){
-        data[i] = NULL;
+        data[i] = nullptr;
     }
 }
 
 
 template <class Element, class Compare>
 UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& other):
-    data(new Element *[other.size]), size(other.size), max_size(other.max_size){
-    for(int i = 0; i < size; i++){
-        *data[i] = *other.data[i];
+    data(new Element* [other.size]), size(other.size), max_size(other.max_size){
+    for(int i = 0; i < max_size; i++){
+        data[i] = new Element(*other.data[i]);
     }
 }
 
@@ -61,7 +61,7 @@ bool UniqueArray<Element, Compare>::remove(const Element& element){
     if (size <= 0){
         return false;
     }
-    unsigned int idx = max_size+1;
+    unsigned int idx;
     unsigned int& index = idx;
     bool found;
     found = getIndex(element, index);
@@ -70,7 +70,6 @@ bool UniqueArray<Element, Compare>::remove(const Element& element){
     }
     else{
         delete[] data[index];
-        data[index] = NULL;
         size -- ;
         return true;
     }
@@ -91,7 +90,7 @@ unsigned int UniqueArray<Element, Compare>::getSize() const {
 
 template <class Element, class Compare>
 const Element* UniqueArray<Element, Compare>::operator[](const Element& element) const{
-    unsigned int idx = max_size+1;
+    unsigned int idx;
     unsigned int& index = idx;
     bool found;
     found = getIndex(element, index);
@@ -106,11 +105,14 @@ const Element* UniqueArray<Element, Compare>::operator[](const Element& element)
 
 template <class Element, class Compare>
 UniqueArray<Element, Compare> UniqueArray<Element, Compare>::filter(const Filter& f) const{
-    for(int i = 0; i <size; i++){
-        if(!f(*data[i])){
-            data[i] = NULL;
+    UniqueArray ua (*this);
+    int len = ua.size;
+    for(int i = 0; i < len; i++){
+        if(!f(*ua.data[i])){
+            delete[] data[i];
+            ua.size--;
         }
     }
-    return *this;
+    return ua;
 }
 #endif //EX3_MTM_UNIQUEARRAYIMP_H
