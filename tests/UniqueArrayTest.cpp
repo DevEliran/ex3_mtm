@@ -95,7 +95,9 @@ static void testInt() {
 int main() {
     #ifndef NDEBUG
         testInt();
+        std::cout << "One gut!" << std::endl;
         testIntP();
+        std::cout << "Two gut!" << std::endl;
         testPoint();
         std::cout << "All tests finished successfully!" << std::endl;
     #endif

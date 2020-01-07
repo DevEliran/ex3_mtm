@@ -6,9 +6,9 @@
 using namespace std;
 template <class Element, class Compare = std::equal_to<Element>>
 class UniqueArray {
-    Element* data;
-    int size;
-    int max_size;
+    Element** data;
+    unsigned int size;
+    unsigned int max_size;
 public:
     explicit UniqueArray(unsigned int size);
     UniqueArray(const UniqueArray& other);
@@ -28,12 +28,6 @@ public:
     UniqueArray filter(const Filter& f) const;
 
     class UniqueArrayIsFullException{};
-
-    class UniqueArrayElementAlreadyExists{};
-
-    class UniqueArrayEmpty{};
-
-    class UniqueArrayElementNotFound{};
 };
 
 #include "UniqueArrayImp.h"
