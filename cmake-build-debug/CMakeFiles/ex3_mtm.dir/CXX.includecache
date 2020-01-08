@@ -15,10 +15,6 @@ D:/ex3_mtm/UniqueArrayImp.h
 D:/ex3_mtm/UniqueArrayImp.h
 
 D:/ex3_mtm/tests/UniqueArrayTest.cpp
-cassert
--
-functional
--
 iostream
 -
 cmath
