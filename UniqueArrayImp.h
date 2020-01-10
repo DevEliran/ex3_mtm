@@ -42,18 +42,17 @@ UniqueArray<Element, Compare>::~UniqueArray(){
 
 template <class Element, class Compare>
 unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
-    Compare compare_func;
     int len = this->getCount();
-    for(int i = 0; i < max_size; i++){
-        if(availability_array[i] == 1) {
-            if (compare_func(*data[i], element)) {
-                return i;
-            }
-        }
+    unsigned int idx;
+
+    if (getIndex(element, idx)){
+        return idx;
     }
+
     if (len >= max_size){
         throw UniqueArrayIsFullException();
     }
+
     for (int k = 0; k < max_size; k++){
         if(availability_array[k] == 0){
             data[k] = new Element(element);
@@ -81,20 +80,18 @@ bool UniqueArray<Element, Compare>::getIndex(const Element& element, unsigned in
 }
 
 template <class Element, class Compare>
-bool UniqueArray<Element, Compare>::remove(const Element& element){ // inspect further
+bool UniqueArray<Element, Compare>::remove(const Element& element){
     if (this->getCount() <= 0){
         return false;
     }
+
     unsigned int idx;
-    unsigned int& index = idx;
-    bool found;
-    found = getIndex(element, index);
-    if (!found){
+
+    if (!getIndex(element, idx)){
         return false;
-    }
-    else{
-        delete data[index];
-        availability_array[index] = 0;
+    } else{
+        delete data[idx];
+        availability_array[idx] = 0;
         return true;
     }
 }
@@ -121,14 +118,11 @@ unsigned int UniqueArray<Element, Compare>::getSize() const {
 template <class Element, class Compare>
 const Element* UniqueArray<Element, Compare>::operator[](const Element& element) const{
     unsigned int idx;
-    unsigned int& index = idx;
-    bool found;
-    found = getIndex(element, index);
-    if (!found){
+
+    if (!getIndex(element, idx)){
         return NULL;
-    }
-    else{
-        return data[index];
+    } else{
+        return data[idx];
     }
 }
 
@@ -136,7 +130,6 @@ const Element* UniqueArray<Element, Compare>::operator[](const Element& element)
 template <class Element, class Compare>
 UniqueArray<Element, Compare> UniqueArray<Element, Compare>::filter(const Filter& f) const{
     UniqueArray ua (*this);
-//    int len = ua.getCount();
     for(int i = 0; i < ua.max_size; i++){
         if(!f(*ua.data[i])){
             ua.remove(*ua.data[i]);
