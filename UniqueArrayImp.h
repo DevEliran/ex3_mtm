@@ -6,7 +6,7 @@ using namespace std;
 template <class Element, class Compare>
 UniqueArray<Element, Compare>::UniqueArray(unsigned int size):
     data(new Element* [size]), curr_size(0), max_size(size), availability_array(new int [size]){
-    for(int i = 0; i < max_size; i++){
+    for(unsigned int i = 0; i < max_size; i++){
         data[i] = nullptr;
         availability_array[i] = 0;
     }
@@ -16,7 +16,7 @@ UniqueArray<Element, Compare>::UniqueArray(unsigned int size):
 template <class Element, class Compare>
 UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& other):
     data(new Element* [other.curr_size]), curr_size(other.curr_size), max_size(other.max_size), availability_array(new int [other.max_size]){
-    for(int i = 0; i < curr_size; i++){
+    for(unsigned int i = 0; i < max_size; i++){
         if(other.availability_array[i] == 1) {
             data[i] = new Element(*other.data[i]);
         }
@@ -30,7 +30,7 @@ UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& other):
 
 template <class Element, class Compare>
 UniqueArray<Element, Compare>::~UniqueArray(){
-    for(int i = 0; i < max_size; i++){
+    for(unsigned int i = 0; i < max_size; i++){
         if(availability_array[i] == 1) {
             delete data[i];
         }
@@ -42,7 +42,7 @@ UniqueArray<Element, Compare>::~UniqueArray(){
 
 template <class Element, class Compare>
 unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
-    int len = this->getCount();
+    unsigned int len = this->getCount();
     unsigned int idx;
 
     if (getIndex(element, idx)){
@@ -53,7 +53,7 @@ unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
         throw UniqueArrayIsFullException();
     }
 
-    for (int k = 0; k < max_size; k++){
+    for (unsigned int k = 0; k < max_size; k++){
         if(availability_array[k] == 0){
             data[k] = new Element(element);
             availability_array[k] = 1;
@@ -68,7 +68,7 @@ unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
 template <class Element, class Compare>
 bool UniqueArray<Element, Compare>::getIndex(const Element& element, unsigned int& index) const {
     Compare compare_func;
-    for(int i = 0; i < max_size; i++){
+    for(unsigned int i = 0; i < max_size; i++){
         if(availability_array[i] == 1) {
             if (compare_func(*data[i], element)) {
                 index = i;
@@ -100,7 +100,7 @@ bool UniqueArray<Element, Compare>::remove(const Element& element){
 template <class Element, class Compare>
 unsigned int UniqueArray<Element, Compare>::getCount() const {
     int count = 0;
-    for(int i = 0; i < max_size; i++){
+    for(unsigned int i = 0; i < max_size; i++){
         if(availability_array[i] == 1){
             count++;
         }
@@ -130,7 +130,7 @@ const Element* UniqueArray<Element, Compare>::operator[](const Element& element)
 template <class Element, class Compare>
 UniqueArray<Element, Compare> UniqueArray<Element, Compare>::filter(const Filter& f) const{
     UniqueArray ua (*this);
-    for(int i = 0; i < ua.max_size; i++){
+    for(unsigned int i = 0; i < ua.max_size; i++){
         if(!f(*ua.data[i])){
             ua.remove(*ua.data[i]);
         }

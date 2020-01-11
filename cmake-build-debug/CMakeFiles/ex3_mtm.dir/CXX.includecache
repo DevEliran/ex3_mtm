@@ -6,23 +6,3 @@
 
 #IncludeRegexTransform: 
 
-D:/ex3_mtm/UniqueArray.h
-functional
--
-UniqueArrayImp.h
-D:/ex3_mtm/UniqueArrayImp.h
-
-D:/ex3_mtm/UniqueArrayImp.h
-
-D:/ex3_mtm/tests/UniqueArrayTest.cpp
-cassert
--
-functional
--
-iostream
--
-cmath
--
-../UniqueArray.h
-D:/ex3_mtm/UniqueArray.h
-

@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.13)
 project(ex3_mtm)
 
 set(CMAKE_CXX_STANDARD 11)
-
+set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Werror -pedantic-errors -g")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
 include_directories(.)
 include_directories(io_files)
 include_directories(tests)
@@ -25,6 +26,5 @@ add_executable(ex3_mtm
 #        ParkingSpot.h
 #        Time.cpp
 #        Time.h
-#        UniqueArray.cpp
         UniqueArray.h
         UniqueArrayImp.h)
