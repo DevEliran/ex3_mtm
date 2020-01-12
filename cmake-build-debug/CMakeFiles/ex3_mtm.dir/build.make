@@ -70,19 +70,99 @@ CMakeFiles/ex3_mtm.dir/tests/UniqueArrayTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3_mtm.dir/tests/UniqueArrayTest.cpp.s"
 	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ex3_mtm\tests\UniqueArrayTest.cpp -o CMakeFiles\ex3_mtm.dir\tests\UniqueArrayTest.cpp.s
 
+CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.obj: CMakeFiles/ex3_mtm.dir/flags.make
+CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.obj: CMakeFiles/ex3_mtm.dir/includes_CXX.rsp
+CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.obj: ../MtmParkingLot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ex3_mtm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.obj"
+	D:\mingw(new)\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\ex3_mtm.dir\MtmParkingLot.cpp.obj -c D:\ex3_mtm\MtmParkingLot.cpp
+
+CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.i"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\ex3_mtm\MtmParkingLot.cpp > CMakeFiles\ex3_mtm.dir\MtmParkingLot.cpp.i
+
+CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.s"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ex3_mtm\MtmParkingLot.cpp -o CMakeFiles\ex3_mtm.dir\MtmParkingLot.cpp.s
+
+CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.obj: CMakeFiles/ex3_mtm.dir/flags.make
+CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.obj: CMakeFiles/ex3_mtm.dir/includes_CXX.rsp
+CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.obj: ../ParkingLotPrinter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ex3_mtm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.obj"
+	D:\mingw(new)\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\ex3_mtm.dir\ParkingLotPrinter.cpp.obj -c D:\ex3_mtm\ParkingLotPrinter.cpp
+
+CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.i"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\ex3_mtm\ParkingLotPrinter.cpp > CMakeFiles\ex3_mtm.dir\ParkingLotPrinter.cpp.i
+
+CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.s"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ex3_mtm\ParkingLotPrinter.cpp -o CMakeFiles\ex3_mtm.dir\ParkingLotPrinter.cpp.s
+
+CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.obj: CMakeFiles/ex3_mtm.dir/flags.make
+CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.obj: CMakeFiles/ex3_mtm.dir/includes_CXX.rsp
+CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.obj: ../ParkingSpot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ex3_mtm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.obj"
+	D:\mingw(new)\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\ex3_mtm.dir\ParkingSpot.cpp.obj -c D:\ex3_mtm\ParkingSpot.cpp
+
+CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.i"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\ex3_mtm\ParkingSpot.cpp > CMakeFiles\ex3_mtm.dir\ParkingSpot.cpp.i
+
+CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.s"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ex3_mtm\ParkingSpot.cpp -o CMakeFiles\ex3_mtm.dir\ParkingSpot.cpp.s
+
+CMakeFiles/ex3_mtm.dir/Time.cpp.obj: CMakeFiles/ex3_mtm.dir/flags.make
+CMakeFiles/ex3_mtm.dir/Time.cpp.obj: CMakeFiles/ex3_mtm.dir/includes_CXX.rsp
+CMakeFiles/ex3_mtm.dir/Time.cpp.obj: ../Time.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ex3_mtm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ex3_mtm.dir/Time.cpp.obj"
+	D:\mingw(new)\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\ex3_mtm.dir\Time.cpp.obj -c D:\ex3_mtm\Time.cpp
+
+CMakeFiles/ex3_mtm.dir/Time.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3_mtm.dir/Time.cpp.i"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\ex3_mtm\Time.cpp > CMakeFiles\ex3_mtm.dir\Time.cpp.i
+
+CMakeFiles/ex3_mtm.dir/Time.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3_mtm.dir/Time.cpp.s"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ex3_mtm\Time.cpp -o CMakeFiles\ex3_mtm.dir\Time.cpp.s
+
+CMakeFiles/ex3_mtm.dir/Vehicle.cpp.obj: CMakeFiles/ex3_mtm.dir/flags.make
+CMakeFiles/ex3_mtm.dir/Vehicle.cpp.obj: CMakeFiles/ex3_mtm.dir/includes_CXX.rsp
+CMakeFiles/ex3_mtm.dir/Vehicle.cpp.obj: ../Vehicle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ex3_mtm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ex3_mtm.dir/Vehicle.cpp.obj"
+	D:\mingw(new)\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\ex3_mtm.dir\Vehicle.cpp.obj -c D:\ex3_mtm\Vehicle.cpp
+
+CMakeFiles/ex3_mtm.dir/Vehicle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3_mtm.dir/Vehicle.cpp.i"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\ex3_mtm\Vehicle.cpp > CMakeFiles\ex3_mtm.dir\Vehicle.cpp.i
+
+CMakeFiles/ex3_mtm.dir/Vehicle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3_mtm.dir/Vehicle.cpp.s"
+	D:\mingw(new)\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ex3_mtm\Vehicle.cpp -o CMakeFiles\ex3_mtm.dir\Vehicle.cpp.s
+
 # Object files for target ex3_mtm
 ex3_mtm_OBJECTS = \
-"CMakeFiles/ex3_mtm.dir/tests/UniqueArrayTest.cpp.obj"
+"CMakeFiles/ex3_mtm.dir/tests/UniqueArrayTest.cpp.obj" \
+"CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.obj" \
+"CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.obj" \
+"CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.obj" \
+"CMakeFiles/ex3_mtm.dir/Time.cpp.obj" \
+"CMakeFiles/ex3_mtm.dir/Vehicle.cpp.obj"
 
 # External object files for target ex3_mtm
 ex3_mtm_EXTERNAL_OBJECTS =
 
 ex3_mtm.exe: CMakeFiles/ex3_mtm.dir/tests/UniqueArrayTest.cpp.obj
+ex3_mtm.exe: CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.obj
+ex3_mtm.exe: CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.obj
+ex3_mtm.exe: CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.obj
+ex3_mtm.exe: CMakeFiles/ex3_mtm.dir/Time.cpp.obj
+ex3_mtm.exe: CMakeFiles/ex3_mtm.dir/Vehicle.cpp.obj
 ex3_mtm.exe: CMakeFiles/ex3_mtm.dir/build.make
 ex3_mtm.exe: CMakeFiles/ex3_mtm.dir/linklibs.rsp
 ex3_mtm.exe: CMakeFiles/ex3_mtm.dir/objects1.rsp
 ex3_mtm.exe: CMakeFiles/ex3_mtm.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\ex3_mtm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ex3_mtm.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\ex3_mtm\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ex3_mtm.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\ex3_mtm.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -3,27 +3,26 @@
 
 #include "ParkingLotTypes.h"
 #include "Time.h"
+#include "ParkingSpot.h"
+
 using namespace ParkingLotUtils;
+namespace MtmParkingLot {
+    class Vehicle {
+    public:
 
-class Vehicle {
-    LicensePlate licensePlate;
-    Time entryTime;
-    VehicleType type;
-public:
-    Vehicle(LicensePlate plate, Time entry_time, VehicleType type):
-    licensePlate(plate), entryTime(entry_time), type(type){
-    }
+        LicensePlate licensePlate;
+        Time entryTime;
+        VehicleType type;
+        ParkingSpot spot;
 
-    getEntryTime(Vehicle v){
-        return entryTime;
-    }
-
-    getType(Vehicle v){
-        return type;
-    }
-
-    getLicensePlate(Vehicle v){
-        return licensePlate;
-    }
-};
+        Vehicle(LicensePlate plate, Time entry_time, VehicleType type,
+                ParkingSpot spot);
+        Time getEntryTime(Vehicle v);
+        VehicleType getType(Vehicle v);
+        LicensePlate getLicensePlate(Vehicle v);
+        ParkingSpot getParkingSpot(Vehicle v);
+//        bool compareVehicles(LicensePlate lp1, LicensePlate lp2);
+        class compareVehicles{};
+    };
+}
 #endif //EX3_MTM_VEHICLE_H

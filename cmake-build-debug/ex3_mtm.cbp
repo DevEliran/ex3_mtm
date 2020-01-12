@@ -86,10 +86,43 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/ex3_mtm/MtmParkingLot.cpp">
+			<Option target="ex3_mtm"/>
+		</Unit>
+		<Unit filename="D:/ex3_mtm/ParkingLot.h">
+			<Option target="ex3_mtm"/>
+		</Unit>
+		<Unit filename="D:/ex3_mtm/ParkingLotPrinter.cpp">
+			<Option target="ex3_mtm"/>
+		</Unit>
+		<Unit filename="D:/ex3_mtm/ParkingLotPrinter.h">
+			<Option target="ex3_mtm"/>
+		</Unit>
+		<Unit filename="D:/ex3_mtm/ParkingLotTypes.h">
+			<Option target="ex3_mtm"/>
+		</Unit>
+		<Unit filename="D:/ex3_mtm/ParkingSpot.cpp">
+			<Option target="ex3_mtm"/>
+		</Unit>
+		<Unit filename="D:/ex3_mtm/ParkingSpot.h">
+			<Option target="ex3_mtm"/>
+		</Unit>
+		<Unit filename="D:/ex3_mtm/Time.cpp">
+			<Option target="ex3_mtm"/>
+		</Unit>
+		<Unit filename="D:/ex3_mtm/Time.h">
+			<Option target="ex3_mtm"/>
+		</Unit>
 		<Unit filename="D:/ex3_mtm/UniqueArray.h">
 			<Option target="ex3_mtm"/>
 		</Unit>
 		<Unit filename="D:/ex3_mtm/UniqueArrayImp.h">
+			<Option target="ex3_mtm"/>
+		</Unit>
+		<Unit filename="D:/ex3_mtm/Vehicle.cpp">
+			<Option target="ex3_mtm"/>
+		</Unit>
+		<Unit filename="D:/ex3_mtm/Vehicle.h">
 			<Option target="ex3_mtm"/>
 		</Unit>
 		<Unit filename="D:/ex3_mtm/tests/UniqueArrayTest.cpp">

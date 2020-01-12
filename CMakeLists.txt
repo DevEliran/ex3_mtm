@@ -17,14 +17,16 @@ add_executable(ex3_mtm
 #        io_files/output3.txt
         tests/UniqueArrayTest.cpp
 #        final_check.py
-#        MtmParkingLot.cpp
-#        ParkingLot.h
-#        ParkingLotPrinter.cpp
-#        ParkingLotPrinter.h
-#        ParkingLotTypes.h
-#        ParkingSpot.cpp
-#        ParkingSpot.h
-#        Time.cpp
-#        Time.h
+        MtmParkingLot.cpp
+        ParkingLot.h
+        ParkingLotPrinter.cpp
+        ParkingLotPrinter.h
+        ParkingLotTypes.h
+        ParkingSpot.cpp
+        ParkingSpot.h
+        Time.cpp
+        Time.h
+        Vehicle.cpp
+        Vehicle.h
         UniqueArray.h
         UniqueArrayImp.h)

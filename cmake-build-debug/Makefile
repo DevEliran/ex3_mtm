@@ -122,6 +122,141 @@ ex3_mtm/fast:
 	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/build
 .PHONY : ex3_mtm/fast
 
+MtmParkingLot.obj: MtmParkingLot.cpp.obj
+
+.PHONY : MtmParkingLot.obj
+
+# target to build an object file
+MtmParkingLot.cpp.obj:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.obj
+.PHONY : MtmParkingLot.cpp.obj
+
+MtmParkingLot.i: MtmParkingLot.cpp.i
+
+.PHONY : MtmParkingLot.i
+
+# target to preprocess a source file
+MtmParkingLot.cpp.i:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.i
+.PHONY : MtmParkingLot.cpp.i
+
+MtmParkingLot.s: MtmParkingLot.cpp.s
+
+.PHONY : MtmParkingLot.s
+
+# target to generate assembly for a file
+MtmParkingLot.cpp.s:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/MtmParkingLot.cpp.s
+.PHONY : MtmParkingLot.cpp.s
+
+ParkingLotPrinter.obj: ParkingLotPrinter.cpp.obj
+
+.PHONY : ParkingLotPrinter.obj
+
+# target to build an object file
+ParkingLotPrinter.cpp.obj:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.obj
+.PHONY : ParkingLotPrinter.cpp.obj
+
+ParkingLotPrinter.i: ParkingLotPrinter.cpp.i
+
+.PHONY : ParkingLotPrinter.i
+
+# target to preprocess a source file
+ParkingLotPrinter.cpp.i:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.i
+.PHONY : ParkingLotPrinter.cpp.i
+
+ParkingLotPrinter.s: ParkingLotPrinter.cpp.s
+
+.PHONY : ParkingLotPrinter.s
+
+# target to generate assembly for a file
+ParkingLotPrinter.cpp.s:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/ParkingLotPrinter.cpp.s
+.PHONY : ParkingLotPrinter.cpp.s
+
+ParkingSpot.obj: ParkingSpot.cpp.obj
+
+.PHONY : ParkingSpot.obj
+
+# target to build an object file
+ParkingSpot.cpp.obj:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.obj
+.PHONY : ParkingSpot.cpp.obj
+
+ParkingSpot.i: ParkingSpot.cpp.i
+
+.PHONY : ParkingSpot.i
+
+# target to preprocess a source file
+ParkingSpot.cpp.i:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.i
+.PHONY : ParkingSpot.cpp.i
+
+ParkingSpot.s: ParkingSpot.cpp.s
+
+.PHONY : ParkingSpot.s
+
+# target to generate assembly for a file
+ParkingSpot.cpp.s:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/ParkingSpot.cpp.s
+.PHONY : ParkingSpot.cpp.s
+
+Time.obj: Time.cpp.obj
+
+.PHONY : Time.obj
+
+# target to build an object file
+Time.cpp.obj:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/Time.cpp.obj
+.PHONY : Time.cpp.obj
+
+Time.i: Time.cpp.i
+
+.PHONY : Time.i
+
+# target to preprocess a source file
+Time.cpp.i:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/Time.cpp.i
+.PHONY : Time.cpp.i
+
+Time.s: Time.cpp.s
+
+.PHONY : Time.s
+
+# target to generate assembly for a file
+Time.cpp.s:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/Time.cpp.s
+.PHONY : Time.cpp.s
+
+Vehicle.obj: Vehicle.cpp.obj
+
+.PHONY : Vehicle.obj
+
+# target to build an object file
+Vehicle.cpp.obj:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/Vehicle.cpp.obj
+.PHONY : Vehicle.cpp.obj
+
+Vehicle.i: Vehicle.cpp.i
+
+.PHONY : Vehicle.i
+
+# target to preprocess a source file
+Vehicle.cpp.i:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/Vehicle.cpp.i
+.PHONY : Vehicle.cpp.i
+
+Vehicle.s: Vehicle.cpp.s
+
+.PHONY : Vehicle.s
+
+# target to generate assembly for a file
+Vehicle.cpp.s:
+	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/Vehicle.cpp.s
+.PHONY : Vehicle.cpp.s
+
 tests/UniqueArrayTest.obj: tests/UniqueArrayTest.cpp.obj
 
 .PHONY : tests/UniqueArrayTest.obj
@@ -158,6 +293,21 @@ help:
 	@echo ... ex3_mtm
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... MtmParkingLot.obj
+	@echo ... MtmParkingLot.i
+	@echo ... MtmParkingLot.s
+	@echo ... ParkingLotPrinter.obj
+	@echo ... ParkingLotPrinter.i
+	@echo ... ParkingLotPrinter.s
+	@echo ... ParkingSpot.obj
+	@echo ... ParkingSpot.i
+	@echo ... ParkingSpot.s
+	@echo ... Time.obj
+	@echo ... Time.i
+	@echo ... Time.s
+	@echo ... Vehicle.obj
+	@echo ... Vehicle.i
+	@echo ... Vehicle.s
 	@echo ... tests/UniqueArrayTest.obj
 	@echo ... tests/UniqueArrayTest.i
 	@echo ... tests/UniqueArrayTest.s

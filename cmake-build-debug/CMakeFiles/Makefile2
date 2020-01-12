@@ -73,12 +73,12 @@ preinstall:
 CMakeFiles/ex3_mtm.dir/all:
 	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/depend
 	$(MAKE) -f CMakeFiles\ex3_mtm.dir\build.make CMakeFiles/ex3_mtm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\ex3_mtm\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target ex3_mtm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\ex3_mtm\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target ex3_mtm"
 .PHONY : CMakeFiles/ex3_mtm.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ex3_mtm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\ex3_mtm\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\ex3_mtm\cmake-build-debug\CMakeFiles 7
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/ex3_mtm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\ex3_mtm\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/ex3_mtm.dir/rule
