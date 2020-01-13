@@ -5,36 +5,40 @@ using namespace std;
 
 namespace MtmParkingLot {
 
-    Vehicle::Vehicle(LicensePlate plate, Time entry_time, VehicleType type,
-                     ParkingSpot spot):licensePlate(plate), entryTime(entry_time), type(type), spot(spot) {
+    Vehicle::Vehicle(LicensePlate plate, ParkingSpot spot, Time entry_time,
+                        VehicleType type, bool fine):licensePlate(plate), entryTime(entry_time), type(type), spot(spot), fine(fine) {
     }
 
 
-    ParkingSpot Vehicle::getParkingSpot(MtmParkingLot::Vehicle v) {
-        return v.spot;
+    ParkingSpot Vehicle::vehicleGetParkingSpot() const{
+        return spot;
     }
 
 
-    Time Vehicle::getEntryTime(MtmParkingLot::Vehicle v) {
-        return v.entryTime;
+    Time Vehicle::getEntryTime() const{
+        return entryTime;
     }
 
 
-    LicensePlate Vehicle::getLicensePlate(MtmParkingLot::Vehicle v) {
+    LicensePlate Vehicle::getLicensePlate() const{
         return licensePlate;
     }
 
 
-    VehicleType Vehicle::getType(MtmParkingLot::Vehicle v) {
-        return v.type;
+    VehicleType Vehicle::getType() const{
+        return type;
     }
 
+
+    bool Vehicle::isVehicleFined() const {
+        return fine;
+    }
 
     class compareVehicles {
     public:
         compareVehicles() = default;
-        bool operator() (LicensePlate lp1, LicensePlate lp2) const {
-            return (lp1.compare(lp2) == 0);
-        };
+        bool operator() (const Vehicle& v1, const Vehicle& v2){
+            return (v1.licensePlate.compare(v2.licensePlate) == 0);
+        }
     };
 }

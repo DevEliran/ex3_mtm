@@ -6,11 +6,13 @@
 using namespace std;
 template <class Element, class Compare = std::equal_to<Element>>
 class UniqueArray {
+
+public:
     Element** data;
     unsigned int curr_size;
     unsigned int max_size;
     int* availability_array;
-public:
+
     explicit UniqueArray(unsigned int size);
     UniqueArray(const UniqueArray& other);
     ~UniqueArray();

@@ -8,25 +8,29 @@
 #include "ParkingLotPrinter.h"
 #include "Vehicle.h"
 
+using namespace ParkingLotUtils;
+using std::ostream;
+
 namespace MtmParkingLot {
 
-    using namespace ParkingLotUtils;
-    using std::ostream;
 
     class ParkingLot {
     public:
 
-        UniqueArray<Vehicle, Vehicle::compareVehicles> *motorbike_parking;
-        UniqueArray<Vehicle, Vehicle::compareVehicles> *car_parking;
-        UniqueArray<Vehicle, Vehicle::compareVehicles> *handicapped_parking;
+        UniqueArray<Vehicle, Vehicle::compareVehicles> motorbike_parking;
+        UniqueArray<Vehicle, Vehicle::compareVehicles> car_parking;
+        UniqueArray<Vehicle, Vehicle::compareVehicles> handicapped_parking;
 
         ParkingLot(unsigned int parkingBlockSizes[]);
-        ~ParkingLot();
+        ~ParkingLot() = default;
         ParkingResult enterParking(VehicleType vehicleType, LicensePlate licensePlate, Time entranceTime);
         ParkingResult exitParking(LicensePlate licensePlate, Time exitTime);
         ParkingResult getParkingSpot(LicensePlate licensePlate, ParkingSpot& parkingSpot) const;
         void inspectParkingLot(Time inspectionTime);
         friend ostream& operator<<(ostream& os, const ParkingLot& parkingLot);
+        int calculateFee(Time entryTime, Time exitTime, VehicleType type);
+        int calculateFeeRecursive(Time entryTime, Time exitTime, VehicleType type, int iter, int totalPrice);
+        bool isVehicleInLot(LicensePlate licensePlate, VehicleType& type, unsigned int& index);
     };
 }
 

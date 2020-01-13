@@ -14,14 +14,16 @@ namespace MtmParkingLot {
         Time entryTime;
         VehicleType type;
         ParkingSpot spot;
+        bool fine;
 
-        Vehicle(LicensePlate plate, Time entry_time, VehicleType type,
-                ParkingSpot spot);
-        Time getEntryTime(Vehicle v);
-        VehicleType getType(Vehicle v);
-        LicensePlate getLicensePlate(Vehicle v);
-        ParkingSpot getParkingSpot(Vehicle v);
-//        bool compareVehicles(LicensePlate lp1, LicensePlate lp2);
+        Vehicle(LicensePlate plate, ParkingSpot spot, Time entry_time = 0, VehicleType type = CAR, bool fine = false);
+        ~Vehicle();
+        Time getEntryTime() const;
+        VehicleType getType() const;
+        LicensePlate getLicensePlate() const;
+        ParkingSpot vehicleGetParkingSpot() const;
+        bool isVehicleFined() const;
+
         class compareVehicles{};
     };
 }
