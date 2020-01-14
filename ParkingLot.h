@@ -28,7 +28,7 @@ namespace MtmParkingLot {
         ParkingResult getParkingSpot(LicensePlate licensePlate, ParkingSpot& parkingSpot) const;
         void inspectParkingLot(Time inspectionTime);
         friend ostream& operator<<(ostream& os, const ParkingLot& parkingLot);
-        int calculateFee(Time entryTime, Time exitTime, VehicleType type);
+        int calculateFee(Time entryTime, Time exitTime, VehicleType type, Vehicle& v);
         int calculateFeeRecursive(Time entryTime, Time exitTime, VehicleType type, int iter, int totalPrice);
         bool isVehicleInLot(LicensePlate licensePlate, VehicleType& type, unsigned int& index);
     };

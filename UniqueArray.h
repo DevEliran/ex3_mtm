@@ -31,6 +31,22 @@ public:
     UniqueArray filter(const Filter& f) const;
 
     class UniqueArrayIsFullException{};
+
+    typedef Element** ua_iterator;
+    typedef const Element** ua_const_iterator;
+
+    ua_iterator begin(){
+        return data;
+    }
+    ua_const_iterator begin() const {
+        return data;
+    }
+    ua_iterator end(){
+        return data + max_size;
+    }
+    ua_const_iterator end() const {
+        return data + max_size;
+    }
 };
 
 #include "UniqueArrayImp.h"
