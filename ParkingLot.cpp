@@ -7,6 +7,7 @@
 #include <map>
 #include <vector>
 #include <iterator>
+#include <algorithm>
 
 using namespace ParkingLotUtils;
 using namespace std;
@@ -234,30 +235,36 @@ namespace MtmParkingLot {
         return calculateFeeRecursive(entryTime, exitTime.toHours() - 1, type, iter, totalPrice);
     }
 
+//
+//    static bool CompareParkingSpots(const Vehicle& v1, const Vehicle& v2){
+//        return v2.spot < v1.spot;
+//    }
+
 
     ostream& operator<<(ostream &os, const ParkingLot &parkingLot) {
         ParkingLotPrinter::printParkingLotTitle(os);
+//        const vector<UniqueArray<Vehicle, Vehicle::compareVehicles>> LotVector = {parkingLot.motorbike_parking, parkingLot.handicapped_parking, parkingLot.car_parking};
+//        sort(LotVector.begin(), LotVector.end(), CompareParkingSpots);
+//        sort(parkingLot.car_parking.begin(), parkingLot.car_parking.end(), CompareParkingSpots);
+//        for(auto* p :LotVector){
+//            for(const auto& v : *p){
+//                ParkingLotPrinter::printVehicle(os, v.)
+//            }
+//        }
         return os;
     }
 
 
     void ParkingLot::inspectParkingLot(Time inspectionTime) {
-//        std::vector<UniqueArray<Vehicle, Vehicle::compareVehicles>> ParkingLotVector = {motorbike_parking, car_parking, handicapped_parking};
-//        std::vector<UniqueArray<Vehicle, Vehicle::compareVehicles>>::iterator ParkingLotIterator;
-//        for(ParkingLotIterator = ParkingLotVector.begin(); ParkingLotIterator < ParkingLotVector.end(); ParkingLotIterator++){
-//            for(/*stuck*/)
-//        }
         unsigned int count = 0;
         for(auto* p :{&motorbike_parking, &car_parking, &handicapped_parking}){
             for(const auto& v : *p){
-                if((inspectionTime - v->getEntryTime()).toHours() > MAX_TIME_ALLOWED_TO_PARK && !v->isVehicleFined()){
-                    v->fine = true;
+                if((inspectionTime - v.getEntryTime()).toHours() > MAX_TIME_ALLOWED_TO_PARK && !v.isVehicleFined()){
+                    v.setFine(true);
                     count++;
                 }
             }
         }
         ParkingLotPrinter::printInspectionResult(std::cout, inspectionTime, count);
     }
-
-
 }

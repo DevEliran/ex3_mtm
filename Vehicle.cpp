@@ -34,11 +34,14 @@ namespace MtmParkingLot {
         return fine;
     }
 
-    class compareVehicles {
-    public:
-        compareVehicles() = default;
-        bool operator() (const Vehicle& v1, const Vehicle& v2){
-            return (v1.licensePlate.compare(v2.licensePlate) == 0);
-        }
-    };
+
+    void Vehicle::setFine(const bool fine) const{
+        this->fine = fine;
+    }
+//    class compareVehicles {
+//    public:
+//        bool operator()(const Vehicle& v1, const Vehicle& v2){
+//
+//        }
+//    };
 }

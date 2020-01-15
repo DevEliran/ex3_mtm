@@ -1,6 +1,7 @@
 #ifndef MTMPARKINGLOT_UNIQUEARRAY_H
 #define MTMPARKINGLOT_UNIQUEARRAY_H
 
+
 #include <functional>
 
 using namespace std;
@@ -16,7 +17,7 @@ public:
     explicit UniqueArray(unsigned int size);
     UniqueArray(const UniqueArray& other);
     ~UniqueArray();
-    UniqueArray& operator=(const UniqueArray&) = delete;
+//    UniqueArray& operator=(const UniqueArray&) = delete;
     unsigned int insert(const Element& element);
     bool getIndex(const Element& element, unsigned int& index) const;
     const Element* operator[] (const Element& element) const;
@@ -32,21 +33,53 @@ public:
 
     class UniqueArrayIsFullException{};
 
-    typedef Element** ua_iterator;
-    typedef const Element** ua_const_iterator;
+    class Iterator{
+    public:
+        using iterator_category = std::random_access_iterator_tag;
+        using value_type = Element;
+        using refrence = Element&;
 
-    ua_iterator begin(){
-        return data;
+        Iterator(Element** data): data(data){}
+
+        refrence operator*(){
+            return **data;
+        }
+
+        Iterator& operator++(){
+            ++data;
+            return *this;
+        }
+
+        friend bool operator!=(Iterator it1, Iterator it2){
+            return it1.data != it2.data;
+        }
+
+    private:
+        Element** data;
+    };
+
+    Iterator begin(){
+        return Iterator(data);
     }
-    ua_const_iterator begin() const {
-        return data;
+
+    Iterator end(){
+        return Iterator(data + max_size);
     }
-    ua_iterator end(){
-        return data + max_size;
-    }
-    ua_const_iterator end() const {
-        return data + max_size;
-    }
+//    typedef Element* ua_iterator;
+//    typedef const Element* ua_const_iterator;
+//
+//    ua_iterator begin(){
+//        return *data;
+//    }
+//    ua_const_iterator begin() const {
+//        return *data;
+//    }
+//    ua_iterator end(){
+//        return *(data + max_size);
+//    }
+//    ua_const_iterator end() const {
+//        return *(data + max_size);
+//    }
 };
 
 #include "UniqueArrayImp.h"

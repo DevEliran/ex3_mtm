@@ -67,10 +67,10 @@ unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
 
 template <class Element, class Compare>
 bool UniqueArray<Element, Compare>::getIndex(const Element& element, unsigned int& index) const {
-//    Compare compare_func;
+    auto compare_func = Compare();
     for(unsigned int i = 0; i < max_size; i++){
         if(availability_array[i] == 1) {
-            if (Compare()(*data[i], element)) {
+            if (compare_func(*data[i], element)) {
                 index = i;
                 return true;
             }
