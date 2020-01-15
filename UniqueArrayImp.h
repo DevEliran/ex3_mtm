@@ -42,15 +42,15 @@ UniqueArray<Element, Compare>::~UniqueArray(){
 
 template <class Element, class Compare>
 unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
-    unsigned int len = this->getCount();
+//    unsigned int len = this->getCount();
+    if (curr_size >= max_size){
+        throw UniqueArrayIsFullException();
+    }
+
     unsigned int idx;
 
     if (getIndex(element, idx)){
         return idx;
-    }
-
-    if (len >= max_size){
-        throw UniqueArrayIsFullException();
     }
 
     for (unsigned int k = 0; k < max_size; k++){
@@ -61,7 +61,7 @@ unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
             return k;
         }
     }
-    return -1;
+    return max_size;
 }
 
 
@@ -84,16 +84,15 @@ bool UniqueArray<Element, Compare>::remove(const Element& element){
     if (this->getCount() <= 0){
         return false;
     }
-
     unsigned int idx;
-
     if (!getIndex(element, idx)){
         return false;
-    } else{
-        delete data[idx];
-        availability_array[idx] = 0;
-        return true;
     }
+    delete data[idx];
+    availability_array[idx] = 0;
+    curr_size--;
+    return true;
+
 }
 
 
@@ -120,7 +119,7 @@ const Element* UniqueArray<Element, Compare>::operator[](const Element& element)
     unsigned int idx;
 
     if (!getIndex(element, idx)){
-        return NULL;
+        return nullptr;
     } else{
         return data[idx];
     }
@@ -136,5 +135,16 @@ UniqueArray<Element, Compare> UniqueArray<Element, Compare>::filter(const Filter
         }
     }
     return ua;
+}
+
+
+template <class Element, class Compare>
+unsigned int UniqueArray<Element, Compare>::getFirstEmptyLocation() {
+    for(unsigned int i = 0; i < max_size; i++){
+        if(availability_array[i] == 0){
+            return i;
+        }
+    }
+    return max_size;
 }
 #endif //EX3_MTM_UNIQUEARRAYIMP_H

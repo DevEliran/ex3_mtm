@@ -24,7 +24,7 @@ public:
     bool remove(const Element& element);
     unsigned int getCount() const;
     unsigned int getSize() const;
-
+    unsigned int getFirstEmptyLocation();
     class Filter {
     public:
         virtual bool operator() (const Element&) const = 0;
