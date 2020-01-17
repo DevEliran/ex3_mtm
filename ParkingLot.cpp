@@ -15,6 +15,8 @@ using namespace std;
 
 
 namespace MtmParkingLot {
+    static int const MAX_PAYMENT_MOTOR = 35;
+    static int const MAX_PAYMENT_CAR = 70;
     static int const FINE_AMOUNT = 250;
     static int const FIRST_HOUR_FEE_MOTOR = 10;
     static int const HOURLY_FEE_MOTOR = 5;
@@ -155,7 +157,8 @@ namespace MtmParkingLot {
     }
 
      int ParkingLot::calculateFee(Time entryTime, Time exitTime,
-                                        VehicleType type, Vehicle v) {
+                                        VehicleType type, LicensePlate licensePlate) {
+        const Vehicle v(licensePlate, ParkingSpot(), 0, CAR, false);
         if(type == CAR){
             if(car_parking[v]->isVehicleFined()){
                 return calculateFeeRecursive(entryTime, exitTime, type, 0, FINE_AMOUNT);
@@ -166,7 +169,11 @@ namespace MtmParkingLot {
                 return calculateFeeRecursive(entryTime, exitTime, type, 0, FINE_AMOUNT);
             }
         } else if(type == HANDICAPPED){
-            if(handicapped_parking[v]->isVehicleFined()){
+            if(handicapped_parking[v] != NULL) {
+                if (handicapped_parking[v]->isVehicleFined()) {
+                    return HANDICAPPED_FEE + FINE_AMOUNT;
+                }
+            }else if(car_parking[v]->isVehicleFined()){
                 return HANDICAPPED_FEE + FINE_AMOUNT;
             }
             return HANDICAPPED_FEE;
@@ -176,15 +183,12 @@ namespace MtmParkingLot {
 
 
      int ParkingLot::calculateFeeRecursive(Time entryTime, Time exitTime, VehicleType type, int iter, int totalPrice){
-        if(type == HANDICAPPED){
-            return HANDICAPPED_FEE;
-        }
         Time total_time_parked = exitTime - entryTime;
         if(total_time_parked.toHours() < 1) {
             return totalPrice + TypeToFee[type].first;
         }
         if(iter == MAX_PAYMENT_HOURS){
-            return totalPrice;
+            return totalPrice + TypeToFee[type].second;
         }
         iter += 1;
         totalPrice += TypeToFee[type].second;
@@ -200,19 +204,23 @@ namespace MtmParkingLot {
         unsigned int index;
         if(motorbike_parking.getIndex(vehicle, index)){
             ParkingLotPrinter::printVehicle(std::cout, motorbike_parking[vehicle]->getType(), motorbike_parking[vehicle]->getLicensePlate(), motorbike_parking[vehicle]->getEntryTime());
-            ParkingLotPrinter::printExitSuccess(std::cout, motorbike_parking[vehicle]->vehicleGetParkingSpot(), exitTime, calculateFee(motorbike_parking[vehicle]->getEntryTime(), exitTime, MOTORBIKE, vehicle));//fee function
+            ParkingLotPrinter::printExitSuccess(std::cout, motorbike_parking[vehicle]->vehicleGetParkingSpot(), exitTime, calculateFee(motorbike_parking[vehicle]->getEntryTime(), exitTime, motorbike_parking[vehicle]->type, licensePlate));
             motorbike_parking.remove(vehicle);
+            return SUCCESS;
         }
-        if(handicapped_parking.getIndex(vehicle, index)){
+        else if(handicapped_parking.getIndex(vehicle, index)){
             ParkingLotPrinter::printVehicle(std::cout, handicapped_parking[vehicle]->getType(), handicapped_parking[vehicle]->getLicensePlate(), handicapped_parking[vehicle]->getEntryTime());
-            ParkingLotPrinter::printExitSuccess(std::cout, handicapped_parking[vehicle]->vehicleGetParkingSpot(), exitTime, calculateFee(handicapped_parking[vehicle]->getEntryTime(), exitTime, HANDICAPPED, vehicle));//fee function
+            ParkingLotPrinter::printExitSuccess(std::cout, handicapped_parking[vehicle]->vehicleGetParkingSpot(), exitTime, calculateFee(handicapped_parking[vehicle]->getEntryTime(), exitTime, handicapped_parking[vehicle]->type, licensePlate));
             handicapped_parking.remove(vehicle);
+            return SUCCESS;
         }
-        if(car_parking.getIndex(vehicle, index)){
+        else if(car_parking.getIndex(vehicle, index)){
             ParkingLotPrinter::printVehicle(std::cout, car_parking[vehicle]->getType(), car_parking[vehicle]->getLicensePlate(), car_parking[vehicle]->getEntryTime());
-            ParkingLotPrinter::printExitSuccess(std::cout, car_parking[vehicle]->vehicleGetParkingSpot(), exitTime, calculateFee(car_parking[vehicle]->getEntryTime(), exitTime, CAR, vehicle));//fee function
+            ParkingLotPrinter::printExitSuccess(std::cout, car_parking[vehicle]->vehicleGetParkingSpot(), exitTime, calculateFee(car_parking[vehicle]->entryTime, exitTime, car_parking[vehicle]->getType(), licensePlate));
             car_parking.remove(vehicle);
+            return SUCCESS;
         }
+        ParkingLotPrinter::printExitFailure(std::cout, licensePlate);
         return VEHICLE_NOT_FOUND;
     }
 

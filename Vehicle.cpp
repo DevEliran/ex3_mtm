@@ -38,10 +38,5 @@ namespace MtmParkingLot {
     void Vehicle::setFine(const bool fine) const{
         this->fine = fine;
     }
-//    class compareVehicles {
-//    public:
-//        bool operator()(const Vehicle& v1, const Vehicle& v2){
-//
-//        }
-//    };
+
 }

@@ -119,7 +119,7 @@ const Element* UniqueArray<Element, Compare>::operator[](const Element& element)
     unsigned int idx;
 
     if (!getIndex(element, idx)){
-        return nullptr;
+        return NULL;
     } else{
         return data[idx];
     }
