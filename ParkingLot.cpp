@@ -184,7 +184,10 @@ namespace MtmParkingLot {
 
      int ParkingLot::calculateFeeRecursive(Time entryTime, Time exitTime, VehicleType type, int iter, int totalPrice){
         Time total_time_parked = exitTime - entryTime;
-        if(total_time_parked.toHours() < 1) {
+        if(total_time_parked.toHours() == 0){
+            return 0;
+        }
+        if(total_time_parked.toHours() == 1) {
             return totalPrice + TypeToFee[type].first;
         }
         if(iter == MAX_PAYMENT_HOURS){
@@ -248,36 +251,76 @@ namespace MtmParkingLot {
     }
 
 
+    static bool CompareParkingSpots(const Vehicle* v1, const Vehicle* v2){
+        return v1->vehicleGetParkingSpot() < v2->vehicleGetParkingSpot();
+    }
 
-//
-//    static bool CompareParkingSpots(const Vehicle& v1, const Vehicle& v2){
-//        return v2.spot < v1.spot;
-//    }
+
+    static void fillVehicleVector(vector<Vehicle*>& vehicles, UniqueArray<Vehicle, Vehicle::compareVehicles> lot){
+        const Vehicle* to_copy_vehicle;
+        for(unsigned int i = 0; i < lot.getSize(); i++){
+            to_copy_vehicle = lot.getElementByIndex(i);
+            if(to_copy_vehicle == nullptr){
+                continue;
+            }
+            vehicles.push_back(new Vehicle(*to_copy_vehicle));//causes leak
+        }
+    }
 
 
     ostream& operator<<(ostream &os, const ParkingLot &parkingLot) {
         ParkingLotPrinter::printParkingLotTitle(os);
-//        const vector<UniqueArray<Vehicle, Vehicle::compareVehicles>> LotVector = {parkingLot.motorbike_parking, parkingLot.handicapped_parking, parkingLot.car_parking};
-//        sort(LotVector.begin(), LotVector.end(), CompareParkingSpots);
-//        sort(parkingLot.car_parking.begin(), parkingLot.car_parking.end(), CompareParkingSpots);
-//        for(auto* p :LotVector){
-//            for(const auto& v : *p){
-//                ParkingLotPrinter::printVehicle(os, v.)
-//            }
-//        }
+
+        std::vector<Vehicle*> vehicles;
+
+        fillVehicleVector(vehicles, parkingLot.motorbike_parking);
+        fillVehicleVector(vehicles, parkingLot.car_parking);
+        fillVehicleVector(vehicles, parkingLot.handicapped_parking);
+
+        sort(vehicles.begin(), vehicles.end(), CompareParkingSpots);
+        for (Vehicle* v : vehicles) {
+            ParkingLotPrinter::printVehicle(os, v->getType(),
+                                            v->getLicensePlate(),
+                                            v->getEntryTime());
+            ParkingLotPrinter::printParkingSpot(os, v->vehicleGetParkingSpot());
+        }
         return os;
     }
 
 
+//    static int inspectSpecificArea(Time inspectionTime, UniqueArray<Vehicle, Vehicle::compareVehicles> lot){
+//        const Vehicle* temp;
+//        int count = 0;
+//        for(unsigned int i = 0; i < lot.getSize(); i++){
+//            temp = lot.getElementByIndex(i);
+//            if(temp == nullptr){
+//                continue;
+//            }
+//            if(!temp->isVehicleFined() && (inspectionTime - temp->getEntryTime()).toHours() > MAX_TIME_ALLOWED_TO_PARK){
+//                lot[*temp]->setFine(true);
+//                count ++;
+//            }
+//        }
+//        return count;
+//    }
+//
+//
+//    void ParkingLot::inspectParkingLot(Time inspectionTime) {
+//        int count1 = 0, count2 = 0, count3 = 0;
+//        count1 = inspectSpecificArea(inspectionTime, car_parking);
+//        count2 = inspectSpecificArea(inspectionTime, handicapped_parking);
+//        count3 = inspectSpecificArea(inspectionTime, motorbike_parking);
+//        ParkingLotPrinter::printInspectionResult(std::cout, inspectionTime, count1+count2+count3);
+//    }
     void ParkingLot::inspectParkingLot(Time inspectionTime) {
         unsigned int count = 0;
         unsigned int idx;
         for(auto* p :{&motorbike_parking, &car_parking, &handicapped_parking}){
             for(const auto& v : *p){
-                if(p->getIndex(v, idx)) {
-                    if ((inspectionTime - v.getEntryTime()).toHours() >
-                        MAX_TIME_ALLOWED_TO_PARK && !v.isVehicleFined()) {
-                        v.setFine(true);
+                if(p->getIndex(*v, idx)) {
+                    if ((inspectionTime - v->getEntryTime()).toHours() >
+                        MAX_TIME_ALLOWED_TO_PARK && !v->isVehicleFined()) {
+                        v->setFine(true);
                         count++;
                     }
                 }

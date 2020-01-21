@@ -15,7 +15,7 @@ UniqueArray<Element, Compare>::UniqueArray(unsigned int size):
 
 template <class Element, class Compare>
 UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& other):
-    data(new Element* [other.curr_size]), curr_size(other.curr_size), max_size(other.max_size), availability_array(new int [other.max_size]){
+    data(new Element* [other.max_size]), curr_size(other.curr_size), max_size(other.max_size), availability_array(new int [other.max_size]){
     for(unsigned int i = 0; i < max_size; i++){
         if(other.availability_array[i] == 1) {
             data[i] = new Element(*other.data[i]);
@@ -146,5 +146,46 @@ unsigned int UniqueArray<Element, Compare>::getFirstEmptyLocation() {
         }
     }
     return max_size;
+}
+
+
+template <class Element, class Compare>
+const Element* UniqueArray<Element, Compare>::getElementByIndex(
+        unsigned int index) const {
+    return data[index];
+}
+
+
+
+template <class Element, class Compare>
+UniqueArray<Element, Compare>::UniqueArray(const UniqueArray& ua1, const UniqueArray& ua2, const UniqueArray& ua3):
+data(new Element*[ua1.max_size + ua2.max_size + ua3.max_size]), curr_size(ua1.curr_size + ua2.curr_size + ua3.curr_size), max_size(ua1.max_size + ua2.max_size + ua3.max_size), availability_array(new int[ua1.max_size + ua2.max_size + ua3.max_size]){
+    for(unsigned int i = 0; i < ua1.max_size; i++){
+        if(ua1.availability_array[i] == 1) {
+            data[i] = new Element(*ua1.data[i]);
+        }
+        else{
+            data[i] = nullptr;
+        }
+        availability_array[i] = ua1.availability_array[i];
+    }
+    for(unsigned int j = ua1.max_size; j < ua1.max_size + ua2.max_size; j++){
+        if(ua2.availability_array[j - ua1.max_size] == 1) {
+            data[j] = new Element(*ua1.data[j - ua1.max_size]);
+        }
+        else{
+            data[j] = nullptr;
+        }
+        availability_array[j] = ua1.availability_array[j - ua1.max_size];
+    }
+    for(unsigned int k = ua1.max_size + ua2.max_size; k < ua1.max_size + ua2.max_size + ua3.max_size; k++){
+        if(ua1.availability_array[k - (ua1.max_size + ua2.max_size)] == 1) {
+            data[k] = new Element(*ua1.data[k - (ua1.max_size + ua2.max_size)]);
+        }
+        else{
+            data[k] = nullptr;
+        }
+        availability_array[k] = ua1.availability_array[k - (ua1.max_size + ua2.max_size)];
+    }
 }
 #endif //EX3_MTM_UNIQUEARRAYIMP_H

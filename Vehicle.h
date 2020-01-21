@@ -17,6 +17,7 @@ namespace MtmParkingLot {
         mutable bool fine;
 
         Vehicle(LicensePlate plate, ParkingSpot spot, Time entry_time = 0, VehicleType type = CAR, bool fine = false);
+        Vehicle(const Vehicle& v);
         ~Vehicle() = default;
         Vehicle& operator=(const Vehicle&) = default;
         Time getEntryTime() const;
