@@ -25,7 +25,7 @@ namespace MtmParkingLot {
         LicensePlate getLicensePlate() const;
         ParkingSpot vehicleGetParkingSpot() const;
         bool isVehicleFined() const;
-        void setFine(const bool fine) const;
+        void setFineTrue() const;
 
         class compareVehicles{
         public:

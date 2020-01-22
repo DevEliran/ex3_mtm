@@ -284,48 +284,51 @@ namespace MtmParkingLot {
                                             v->getEntryTime());
             ParkingLotPrinter::printParkingSpot(os, v->vehicleGetParkingSpot());
         }
+        for (Vehicle* v : vehicles){
+            delete v;
+        }
         return os;
     }
 
 
-//    static int inspectSpecificArea(Time inspectionTime, UniqueArray<Vehicle, Vehicle::compareVehicles> lot){
-//        const Vehicle* temp;
-//        int count = 0;
-//        for(unsigned int i = 0; i < lot.getSize(); i++){
-//            temp = lot.getElementByIndex(i);
-//            if(temp == nullptr){
-//                continue;
-//            }
-//            if(!temp->isVehicleFined() && (inspectionTime - temp->getEntryTime()).toHours() > MAX_TIME_ALLOWED_TO_PARK){
-//                lot[*temp]->setFine(true);
-//                count ++;
-//            }
-//        }
-//        return count;
-//    }
-//
-//
-//    void ParkingLot::inspectParkingLot(Time inspectionTime) {
-//        int count1 = 0, count2 = 0, count3 = 0;
-//        count1 = inspectSpecificArea(inspectionTime, car_parking);
-//        count2 = inspectSpecificArea(inspectionTime, handicapped_parking);
-//        count3 = inspectSpecificArea(inspectionTime, motorbike_parking);
-//        ParkingLotPrinter::printInspectionResult(std::cout, inspectionTime, count1+count2+count3);
-//    }
-    void ParkingLot::inspectParkingLot(Time inspectionTime) {
-        unsigned int count = 0;
-        unsigned int idx;
-        for(auto* p :{&motorbike_parking, &car_parking, &handicapped_parking}){
-            for(const auto& v : *p){
-                if(p->getIndex(*v, idx)) {
-                    if ((inspectionTime - v->getEntryTime()).toHours() >
-                        MAX_TIME_ALLOWED_TO_PARK && !v->isVehicleFined()) {
-                        v->setFine(true);
-                        count++;
-                    }
-                }
+    static int inspectSpecificArea(Time inspectionTime, UniqueArray<Vehicle, Vehicle::compareVehicles>&lot){
+        const Vehicle* temp;
+        int count = 0;
+        for(unsigned int i = 0; i < lot.getSize(); i++){
+            temp = lot.getElementByIndex(i);
+            if(temp == nullptr){
+                continue;
+            }
+            else if(!(*temp).isVehicleFined() && (inspectionTime - (*temp).getEntryTime()).toHours() > MAX_TIME_ALLOWED_TO_PARK){
+                (*lot[*temp]).setFineTrue();
+                count ++;
             }
         }
-        ParkingLotPrinter::printInspectionResult(std::cout, inspectionTime, count);
+        return count;
     }
+
+
+    void ParkingLot::inspectParkingLot(Time inspectionTime) {
+        int count1 = 0, count2 = 0, count3 = 0;
+        count1 = inspectSpecificArea(inspectionTime, car_parking);
+        count2 = inspectSpecificArea(inspectionTime, handicapped_parking);
+        count3 = inspectSpecificArea(inspectionTime, motorbike_parking);
+        ParkingLotPrinter::printInspectionResult(std::cout, inspectionTime, count1+count2+count3);
+    }
+//    void ParkingLot::inspectParkingLot(Time inspectionTime) {
+//        unsigned int count = 0;
+//        unsigned int idx;
+//        for(auto* p :{&motorbike_parking, &car_parking, &handicapped_parking}){
+//            for(const auto& v : *p){
+//                if(p->getIndex(*v, idx)) {
+//                    if ((inspectionTime - v->getEntryTime()).toHours() >
+//                        MAX_TIME_ALLOWED_TO_PARK && !v->isVehicleFined()) {
+//                        v->setFine(true);
+//                        count++;
+//                    }
+//                }
+//            }
+//        }
+//        ParkingLotPrinter::printInspectionResult(std::cout, inspectionTime, count);
+//    }
 }

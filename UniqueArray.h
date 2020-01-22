@@ -25,7 +25,6 @@ public:
     unsigned int getCount() const;
     unsigned int getSize() const;
     unsigned int getFirstEmptyLocation();
-    UniqueArray(const UniqueArray& ua1, const UniqueArray& ua2,const UniqueArray& ua3);
     const Element* getElementByIndex(unsigned int index) const;
     class Filter {
     public:

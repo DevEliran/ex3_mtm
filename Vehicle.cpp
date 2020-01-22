@@ -39,8 +39,8 @@ namespace MtmParkingLot {
     }
 
 
-    void Vehicle::setFine(const bool fine) const{
-        this->fine = fine;
+    void Vehicle::setFineTrue() const {
+        this->fine = true;
     }
 
 }
