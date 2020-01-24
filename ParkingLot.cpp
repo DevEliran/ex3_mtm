@@ -30,6 +30,11 @@ namespace MtmParkingLot {
             {CAR, make_pair(FIRST_HOUR_FEE_CAR, HOURLY_FEE_CAR)},
             {HANDICAPPED, make_pair(HANDICAPPED_FEE, HANDICAPPED_FEE)}
     };
+    static std::map<VehicleType, int const> TypeToMaxFee = {
+            {MOTORBIKE, MAX_PAYMENT_MOTOR},
+            {CAR, MAX_PAYMENT_CAR},
+            {HANDICAPPED, HANDICAPPED_FEE}
+    };
 
 
     ParkingLot::ParkingLot(unsigned int parkingBlockSizes[]) :
@@ -156,27 +161,31 @@ namespace MtmParkingLot {
         return SUCCESS;
     }
 
+
      int ParkingLot::calculateFee(Time entryTime, Time exitTime,
                                         VehicleType type, LicensePlate licensePlate) {
+        Time total_time = exitTime - entryTime;
+        if(total_time.toHours() == 0){
+            return 0;
+        }
         const Vehicle v(licensePlate, ParkingSpot(), 0, CAR, false);
         if(type == CAR){
             if(car_parking[v]->isVehicleFined()){
-                return calculateFeeRecursive(entryTime, exitTime, type, 0, FINE_AMOUNT);
+                return FINE_AMOUNT + TypeToMaxFee[type];
             }
         }
         else if (type == MOTORBIKE){
             if(motorbike_parking[v]->isVehicleFined()){
-                return calculateFeeRecursive(entryTime, exitTime, type, 0, FINE_AMOUNT);
+                return FINE_AMOUNT + TypeToMaxFee[type];
             }
         } else if(type == HANDICAPPED){
             if(handicapped_parking[v] != NULL) {
                 if (handicapped_parking[v]->isVehicleFined()) {
-                    return HANDICAPPED_FEE + FINE_AMOUNT;
+                    return FINE_AMOUNT + TypeToMaxFee[type];
                 }
-            }else if(car_parking[v]->isVehicleFined()){
-                return HANDICAPPED_FEE + FINE_AMOUNT;
+            } else if(car_parking[v]->isVehicleFined()){
+                return FINE_AMOUNT + TypeToMaxFee[type];
             }
-            return HANDICAPPED_FEE;
         }
         return calculateFeeRecursive(entryTime, exitTime, type, 0, 0);
     }
@@ -185,17 +194,25 @@ namespace MtmParkingLot {
      int ParkingLot::calculateFeeRecursive(Time entryTime, Time exitTime, VehicleType type, int iter, int totalPrice){
         Time total_time_parked = exitTime - entryTime;
         if(total_time_parked.toHours() == 0){
-            return 0;
+            return totalPrice;
         }
         if(total_time_parked.toHours() == 1) {
             return totalPrice + TypeToFee[type].first;
         }
-        if(iter == MAX_PAYMENT_HOURS){
-            return totalPrice + TypeToFee[type].second;
+        if(type == HANDICAPPED){
+            if(total_time_parked.toHours() > 0){
+                return HANDICAPPED_FEE;
+            } else{
+                return 0;
+            }
         }
-        iter += 1;
+        if(total_time_parked.toHours() == MAX_PAYMENT_HOURS){
+            return TypeToMaxFee[type];
+        }
         totalPrice += TypeToFee[type].second;
-        return calculateFeeRecursive(entryTime, exitTime.toHours() - 1, type, iter, totalPrice);
+        iter += 1;
+        Time hour(0,1,0);
+        return calculateFeeRecursive(entryTime, exitTime - hour, type, iter, totalPrice);
     }
 
 

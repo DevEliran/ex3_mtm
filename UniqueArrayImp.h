@@ -42,15 +42,14 @@ UniqueArray<Element, Compare>::~UniqueArray(){
 
 template <class Element, class Compare>
 unsigned int UniqueArray<Element, Compare>::insert(const Element& element){
-//    unsigned int len = this->getCount();
-    if (curr_size >= max_size){
-        throw UniqueArrayIsFullException();
-    }
-
     unsigned int idx;
 
     if (getIndex(element, idx)){
         return idx;
+    }
+
+    if (curr_size >= max_size){
+        throw UniqueArrayIsFullException();
     }
 
     for (unsigned int k = 0; k < max_size; k++){
