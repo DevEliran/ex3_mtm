@@ -24,8 +24,18 @@ public:
     bool remove(const Element& element);
     unsigned int getCount() const;
     unsigned int getSize() const;
+
+    /**
+     * @return the index of the first empty spot in the array.
+     */
     unsigned int getFirstEmptyLocation();
+
+    /**
+     * @param index
+     * @return an Element pointer in the index spot inside 'data' array.
+     */
     const Element* getElementByIndex(unsigned int index) const;
+
     class Filter {
     public:
         virtual bool operator() (const Element&) const = 0;
@@ -49,38 +59,6 @@ public:
     const_iterator end() const{
         return data + max_size;
     }
-//    class Iterator{
-//    public:
-//        using iterator_category = std::random_access_iterator_tag;
-//        using value_type = Element;
-//        using refrence = Element&;
-//
-//        Iterator(Element** data): data(data){}
-//
-//        refrence operator*(){
-//            return **data;
-//        }
-//
-//        Iterator& operator++(){
-//            ++data;
-//            return *this;
-//        }
-//
-//        friend bool operator!=(Iterator it1, Iterator it2){
-//            return it1.data != it2.data;
-//        }
-//
-//    private:
-//        Element** data;
-//    };
-//
-//    Iterator begin(){
-//        return Iterator(data);
-//    }
-//
-//    Iterator end(){
-//        return Iterator(data + max_size);
-//    }
 };
 
 #include "UniqueArrayImp.h"
